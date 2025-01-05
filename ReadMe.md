@@ -23,13 +23,13 @@ A .NET Core console application for parsing and analyzing `.cs` files. This tool
 
 ## Setup
 
-### 1. Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/<YourUsername>/<RepositoryName>.git
 cd <RepositoryName>
 
-# Build and Run the Application
+### Build and Run the Application
 
 $ dotnet build
 $ dotnet run
@@ -72,5 +72,5 @@ RoslynAbstractSyntaxTree/
 ├── Projects.sln
 .gitignore
 
-# Contributing
+### Contributing
 Feel free to fork the repository and create a pull request. For major changes, please open an issue first to discuss what you would like to change.
