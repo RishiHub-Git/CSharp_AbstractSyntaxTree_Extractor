@@ -1,4 +1,4 @@
-# C# Code Analysis Tool
+# C# Code Abstract Syntax Tree Extractor & Analysis Tool
 
 A .NET Core console application for parsing and analyzing `.cs` files. This tool extracts:
 - Namespaces, Classes, Methods, Properties, and Constructors
