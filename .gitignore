@@ -1,0 +1,31 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.vs/
+.vscode/
+
+# Ignore logs
+*.log
+
+# Ignore package directories
+packages/
+node_modules/
+
+# Ignore temporary files
+*.tmp
+*.lock
+*.suo
+*.pdb
+*.cache
+*.sqlite
+*.db
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.idea/
