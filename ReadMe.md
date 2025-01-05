@@ -23,6 +23,9 @@ A .NET Core console application for parsing and analyzing `.cs` files. This tool
 
 ## Setup
 
+### Contributing
+Feel free to fork the repository and create a pull request. For major changes, please open an issue first to discuss what you would like to change.
+
 ### Clone the Repository
 
 ```bash
@@ -71,6 +74,3 @@ RoslynAbstractSyntaxTree/
 ├── RoslynAbstractSyntaxTree.csproj
 ├── Projects.sln
 .gitignore
-
-### Contributing
-Feel free to fork the repository and create a pull request. For major changes, please open an issue first to discuss what you would like to change.
