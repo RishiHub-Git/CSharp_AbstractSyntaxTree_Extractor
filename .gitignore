@@ -1,6 +1,9 @@
 # Ignore build outputs
 bin/
 obj/
+creds/
+token.json/
+Data/
 
 # Ignore user-specific files
 *.user

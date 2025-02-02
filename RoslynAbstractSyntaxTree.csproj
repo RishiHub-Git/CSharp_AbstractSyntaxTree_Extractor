@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Apis.Auth" Version="1.69.0" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.69.0.3674" />
     <PackageReference Include="Microsoft.CodeAnalysis" Version="4.12.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
