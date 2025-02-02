@@ -1,0 +1,45 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "TodoItemCompletedEventHandler",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "Handle",
+              "Access_Modifier": "public",
+              "Is_Method_Static": false,
+              "Parameters": "TodoItemCompletedEvent notification, CancellationToken cancellationToken",
+              "ReturnType": "Task",
+              "Body": "{\n        _logger.LogInformation(\"CleanArchitecture Domain Event: {DomainEvent}\", notification.GetType().Name);\n\n        return Task.CompletedTask;\n    }"
+            }
+          ],
+          "Constructors": [
+            {
+              "Name": "TodoItemCompletedEventHandler",
+              "Access_Modifier": "public",
+              "Body": "{\n        _logger = logger;\n    }",
+              "Parameters": "ILogger<TodoItemCompletedEventHandler> logger"
+            }
+          ],
+          "Fields": [
+            {
+              "Name": "_logger",
+              "FieldType": "ILogger<TodoItemCompletedEventHandler>",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            }
+          ],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "PaginatedList",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "CreateAsync",
+              "Access_Modifier": "public",
+              "Is_Method_Static": true,
+              "Parameters": "IQueryable<T> source, int pageNumber, int pageSize",
+              "ReturnType": "Task<PaginatedList<T>>",
+              "Body": "{\n        var count = await source.CountAsync();\n        var items = await source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();\n\n        return new PaginatedList<T>(items, count, pageNumber, pageSize);\n    }"
+            }
+          ],
+          "Constructors": [
+            {
+              "Name": "PaginatedList",
+              "Access_Modifier": "public",
+              "Body": "{\n        PageNumber = pageNumber;\n        TotalPages = (int)Math.Ceiling(count / (double)pageSize);\n        TotalCount = count;\n        Items = items;\n    }",
+              "Parameters": "IReadOnlyCollection<T> items, int count, int pageNumber, int pageSize"
+            }
+          ],
+          "Fields": [],
+          "Properties": [
+            {
+              "Name": "Items",
+              "PropertyType": "IReadOnlyCollection<T>",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            },
+            {
+              "Name": "PageNumber",
+              "PropertyType": "int",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            },
+            {
+              "Name": "TotalPages",
+              "PropertyType": "int",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            },
+            {
+              "Name": "TotalCount",
+              "PropertyType": "int",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            },
+            {
+              "Name": "HasPreviousPage",
+              "PropertyType": "bool",
+              "Access_Modifier": "public",
+              "HasGet": false,
+              "HasSet": false
+            },
+            {
+              "Name": "HasNextPage",
+              "PropertyType": "bool",
+              "Access_Modifier": "public",
+              "HasGet": false,
+              "HasSet": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

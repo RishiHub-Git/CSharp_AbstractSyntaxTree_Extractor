@@ -1,0 +1,45 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "UnhandledExceptionBehaviour",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "Handle",
+              "Access_Modifier": "public",
+              "Is_Method_Static": false,
+              "Parameters": "TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken",
+              "ReturnType": "Task<TResponse>",
+              "Body": "{\n        try\n        {\n            return await next();\n        }\n        catch (Exception ex)\n        {\n            var requestName = typeof(TRequest).Name;\n\n            _logger.LogError(ex, \"CleanArchitecture Request: Unhandled Exception for Request {Name} {@Request}\", requestName, request);\n\n            throw;\n        }\n    }"
+            }
+          ],
+          "Constructors": [
+            {
+              "Name": "UnhandledExceptionBehaviour",
+              "Access_Modifier": "public",
+              "Body": "{\n        _logger = logger;\n    }",
+              "Parameters": "ILogger<TRequest> logger"
+            }
+          ],
+          "Fields": [
+            {
+              "Name": "_logger",
+              "FieldType": "ILogger<TRequest>",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            }
+          ],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

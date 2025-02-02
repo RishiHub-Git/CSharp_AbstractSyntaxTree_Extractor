@@ -1,0 +1,51 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "AuthorizationBehaviour",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "Handle",
+              "Access_Modifier": "public",
+              "Is_Method_Static": false,
+              "Parameters": "TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken",
+              "ReturnType": "Task<TResponse>",
+              "Body": "{\n        var authorizeAttributes = request.GetType().GetCustomAttributes<AuthorizeAttribute>();\n\n        if (authorizeAttributes.Any())\n        {\n            // Must be authenticated user\n            if (_user.Id == null)\n            {\n                throw new UnauthorizedAccessException();\n            }\n\n            // Role-based authorization\n            var authorizeAttributesWithRoles = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Roles));\n\n            if (authorizeAttributesWithRoles.Any())\n            {\n                var authorized = false;\n\n                foreach (var roles in authorizeAttributesWithRoles.Select(a => a.Roles.Split(',')))\n                {\n                    foreach (var role in roles)\n                    {\n                        var isInRole = await _identityService.IsInRoleAsync(_user.Id, role.Trim());\n                        if (isInRole)\n                        {\n                            authorized = true;\n                            break;\n                        }\n                    }\n                }\n\n                // Must be a member of at least one role in roles\n                if (!authorized)\n                {\n                    throw new ForbiddenAccessException();\n                }\n            }\n\n            // Policy-based authorization\n            var authorizeAttributesWithPolicies = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Policy));\n            if (authorizeAttributesWithPolicies.Any())\n            {\n                foreach (var policy in authorizeAttributesWithPolicies.Select(a => a.Policy))\n                {\n                    var authorized = await _identityService.AuthorizeAsync(_user.Id, policy);\n\n                    if (!authorized)\n                    {\n                        throw new ForbiddenAccessException();\n                    }\n                }\n            }\n        }\n\n        // User is authorized / authorization not required\n        return await next();\n    }"
+            }
+          ],
+          "Constructors": [
+            {
+              "Name": "AuthorizationBehaviour",
+              "Access_Modifier": "public",
+              "Body": "{\n        _user = user;\n        _identityService = identityService;\n    }",
+              "Parameters": "IUser user, IIdentityService identityService"
+            }
+          ],
+          "Fields": [
+            {
+              "Name": "_user",
+              "FieldType": "IUser",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            },
+            {
+              "Name": "_identityService",
+              "FieldType": "IIdentityService",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            }
+          ],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

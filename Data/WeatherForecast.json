@@ -1,0 +1,49 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "WeatherForecast",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [],
+          "Constructors": [],
+          "Fields": [],
+          "Properties": [
+            {
+              "Name": "Date",
+              "PropertyType": "DateTime",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            },
+            {
+              "Name": "TemperatureC",
+              "PropertyType": "int",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            },
+            {
+              "Name": "TemperatureF",
+              "PropertyType": "int",
+              "Access_Modifier": "public",
+              "HasGet": false,
+              "HasSet": false
+            },
+            {
+              "Name": "Summary",
+              "PropertyType": "string?",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

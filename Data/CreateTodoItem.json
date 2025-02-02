@@ -1,0 +1,45 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "CreateTodoItemCommandHandler",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "Handle",
+              "Access_Modifier": "public",
+              "Is_Method_Static": false,
+              "Parameters": "CreateTodoItemCommand request, CancellationToken cancellationToken",
+              "ReturnType": "Task<int>",
+              "Body": "{\n        var entity = new TodoItem\n        {\n            ListId = request.ListId,\n            Title = request.Title,\n            Done = false\n        };\n\n        entity.AddDomainEvent(new TodoItemCreatedEvent(entity));\n\n        _context.TodoItems.Add(entity);\n\n        await _context.SaveChangesAsync(cancellationToken);\n\n        return entity.Id;\n    }"
+            }
+          ],
+          "Constructors": [
+            {
+              "Name": "CreateTodoItemCommandHandler",
+              "Access_Modifier": "public",
+              "Body": "{\n        _context = context;\n    }",
+              "Parameters": "IApplicationDbContext context"
+            }
+          ],
+          "Fields": [
+            {
+              "Name": "_context",
+              "FieldType": "IApplicationDbContext",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            }
+          ],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

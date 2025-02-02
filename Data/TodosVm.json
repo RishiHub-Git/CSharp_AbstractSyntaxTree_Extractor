@@ -1,0 +1,35 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "TodosVm",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [],
+          "Constructors": [],
+          "Fields": [],
+          "Properties": [
+            {
+              "Name": "PriorityLevels",
+              "PropertyType": "IReadOnlyCollection<LookupDto>",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            },
+            {
+              "Name": "Lists",
+              "PropertyType": "IReadOnlyCollection<TodoListDto>",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

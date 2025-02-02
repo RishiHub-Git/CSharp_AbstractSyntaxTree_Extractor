@@ -1,0 +1,38 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "GetWeatherForecastsQueryHandler",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "Handle",
+              "Access_Modifier": "public",
+              "Is_Method_Static": false,
+              "Parameters": "GetWeatherForecastsQuery request, CancellationToken cancellationToken",
+              "ReturnType": "Task<IEnumerable<WeatherForecast>>",
+              "Body": "{\n        var rng = new Random();\n\n        return Enumerable.Range(1, 5).Select(index => new WeatherForecast\n        {\n            Date = DateTime.Now.AddDays(index),\n            TemperatureC = rng.Next(-20, 55),\n            Summary = Summaries[rng.Next(Summaries.Length)]\n        });\n    }"
+            }
+          ],
+          "Constructors": [],
+          "Fields": [
+            {
+              "Name": "Summaries",
+              "FieldType": "string[]",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            }
+          ],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

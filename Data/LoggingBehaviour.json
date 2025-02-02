@@ -1,0 +1,57 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "LoggingBehaviour",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "Process",
+              "Access_Modifier": "public",
+              "Is_Method_Static": false,
+              "Parameters": "TRequest request, CancellationToken cancellationToken",
+              "ReturnType": "Task",
+              "Body": "{\n        var requestName = typeof(TRequest).Name;\n        var userId = _user.Id ?? string.Empty;\n        string? userName = string.Empty;\n\n        if (!string.IsNullOrEmpty(userId))\n        {\n            userName = await _identityService.GetUserNameAsync(userId);\n        }\n\n        _logger.LogInformation(\"CleanArchitecture Request: {Name} {@UserId} {@UserName} {@Request}\",\n            requestName, userId, userName, request);\n    }"
+            }
+          ],
+          "Constructors": [
+            {
+              "Name": "LoggingBehaviour",
+              "Access_Modifier": "public",
+              "Body": "{\n        _logger = logger;\n        _user = user;\n        _identityService = identityService;\n    }",
+              "Parameters": "ILogger<TRequest> logger, IUser user, IIdentityService identityService"
+            }
+          ],
+          "Fields": [
+            {
+              "Name": "_logger",
+              "FieldType": "ILogger",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            },
+            {
+              "Name": "_user",
+              "FieldType": "IUser",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            },
+            {
+              "Name": "_identityService",
+              "FieldType": "IIdentityService",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            }
+          ],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

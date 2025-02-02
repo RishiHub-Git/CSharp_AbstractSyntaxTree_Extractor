@@ -1,0 +1,45 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "DeleteTodoListCommandHandler",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "Handle",
+              "Access_Modifier": "public",
+              "Is_Method_Static": false,
+              "Parameters": "DeleteTodoListCommand request, CancellationToken cancellationToken",
+              "ReturnType": "Task",
+              "Body": "{\n        var entity = await _context.TodoLists\n            .Where(l => l.Id == request.Id)\n            .SingleOrDefaultAsync(cancellationToken);\n\n        Guard.Against.NotFound(request.Id, entity);\n\n        _context.TodoLists.Remove(entity);\n\n        await _context.SaveChangesAsync(cancellationToken);\n    }"
+            }
+          ],
+          "Constructors": [
+            {
+              "Name": "DeleteTodoListCommandHandler",
+              "Access_Modifier": "public",
+              "Body": "{\n        _context = context;\n    }",
+              "Parameters": "IApplicationDbContext context"
+            }
+          ],
+          "Fields": [
+            {
+              "Name": "_context",
+              "FieldType": "IApplicationDbContext",
+              "Access_Modifier": "private",
+              "IsReadonly": true
+            }
+          ],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

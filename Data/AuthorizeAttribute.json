@@ -1,0 +1,42 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "AuthorizeAttribute",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "/// <summary>\n/// Specifies the class this attribute is applied to requires authorization.\n/// </summary>",
+          "Comment": "",
+          "Methods": [],
+          "Constructors": [
+            {
+              "Name": "AuthorizeAttribute",
+              "Access_Modifier": "public",
+              "Body": "{ }",
+              "Parameters": ""
+            }
+          ],
+          "Fields": [],
+          "Properties": [
+            {
+              "Name": "Roles",
+              "PropertyType": "string",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": true
+            },
+            {
+              "Name": "Policy",
+              "PropertyType": "string",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

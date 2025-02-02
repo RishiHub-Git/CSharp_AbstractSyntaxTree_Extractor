@@ -1,5 +1,5 @@
 ﻿
-DocumentProcessor documentProcessor = new("Codes");
+DocumentProcessor documentProcessor = new(@"D:\Trainings\Codes");
 
 Console.WriteLine("Started Processing......");
 foreach (var filePath in documentProcessor.FetchFiles())

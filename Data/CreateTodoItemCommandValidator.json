@@ -1,0 +1,27 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "CreateTodoItemCommandValidator",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [],
+          "Constructors": [
+            {
+              "Name": "CreateTodoItemCommandValidator",
+              "Access_Modifier": "public",
+              "Body": "{\n        RuleFor(v => v.Title)\n            .MaximumLength(200)\n            .NotEmpty();\n    }",
+              "Parameters": ""
+            }
+          ],
+          "Fields": [],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

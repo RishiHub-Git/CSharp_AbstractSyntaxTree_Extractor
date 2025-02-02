@@ -1,0 +1,41 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "MappingExtensions",
+          "Access_Modifier": "public",
+          "Is_Class_Static": true,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "PaginatedListAsync",
+              "Access_Modifier": "public",
+              "Is_Method_Static": true,
+              "Parameters": "this IQueryable<TDestination> queryable, int pageNumber, int pageSize",
+              "ReturnType": "Task<PaginatedList<TDestination>>",
+              "Body": "No Body"
+            },
+            {
+              "XMLComment": "",
+              "Comment": "",
+              "Name": "ProjectToListAsync",
+              "Access_Modifier": "public",
+              "Is_Method_Static": true,
+              "Parameters": "this IQueryable queryable, IConfigurationProvider configuration",
+              "ReturnType": "Task<List<TDestination>>",
+              "Body": "No Body"
+            }
+          ],
+          "Constructors": [],
+          "Fields": [],
+          "Properties": []
+        }
+      ]
+    }
+  ]
+}

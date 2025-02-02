@@ -1,0 +1,41 @@
+{
+  "Namespaces": [
+    {
+      "Name": "Default NameSpace",
+      "Classes": [
+        {
+          "Name": "ValidationException",
+          "Access_Modifier": "public",
+          "Is_Class_Static": false,
+          "XMLComment": "",
+          "Comment": "",
+          "Methods": [],
+          "Constructors": [
+            {
+              "Name": "ValidationException",
+              "Access_Modifier": "public",
+              "Body": "{\n        Errors = new Dictionary<string, string[]>();\n    }",
+              "Parameters": ""
+            },
+            {
+              "Name": "ValidationException",
+              "Access_Modifier": "public",
+              "Body": "{\n        Errors = failures\n            .GroupBy(e => e.PropertyName, e => e.ErrorMessage)\n            .ToDictionary(failureGroup => failureGroup.Key, failureGroup => failureGroup.ToArray());\n    }",
+              "Parameters": "IEnumerable<ValidationFailure> failures"
+            }
+          ],
+          "Fields": [],
+          "Properties": [
+            {
+              "Name": "Errors",
+              "PropertyType": "IDictionary<string, string[]>",
+              "Access_Modifier": "public",
+              "HasGet": true,
+              "HasSet": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
