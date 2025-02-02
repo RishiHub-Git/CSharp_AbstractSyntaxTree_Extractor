@@ -51,7 +51,7 @@ RoslynAbstractSyntaxTree/
 ├── Codes/
 │   ├── FactoryMethodPattern.cs
 │   ├── TestProgram.cs
-├── Data/
+├── data/
 │   ├── FactoryMethodPattern.json
 │   ├── TestProgram.json
 ├── dtos/
