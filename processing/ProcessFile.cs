@@ -1,4 +1,3 @@
-using System.Text.Json;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System.Globalization;
@@ -13,12 +12,12 @@ class ProcessFile{
         // Get the root node of the Syntax Tree
         SyntaxNode rootNode = syntaxTree.GetRoot();
 
-        // Display the structure of the AST
-        string json = JsonSerializer.Serialize(MetaExtractionProcess.ExtractClassesAndMethods(rootNode), 
-            new JsonSerializerOptions { WriteIndented = true });
+        string json = JsonConvert.SerializeObject(
+            MetaExtractionProcess.ExtractClassesAndMethods(rootNode), 
+            Formatting.Indented);
         
         DocumentProcessor.SaveJsonFile(json,fileName);
-        Console.WriteLine(FormatRecordToText(json));
+        //Console.WriteLine("Formatted Text " + FormatRecordToText(json));
     }
 
     /// <summary>

@@ -7,21 +7,21 @@
           "Name": "UtilityClass",
           "Access_Modifier": "public",
           "Is_Class_Static": false,
-          "XMLComment": "/// \u003Csummary\u003E\n/// This is a utility class.\n/// \u003C/summary\u003E",
+          "XMLComment": "/// <summary>\n/// This is a utility class.\n/// </summary>",
           "Comment": "",
           "Methods": [
             {
-              "XMLComment": "/// \u003Csummary\u003E\n    /// Adds two numbers.\n    /// \u003C/summary\u003E",
+              "XMLComment": "/// <summary>\n    /// Adds two numbers.\n    /// </summary>",
               "Comment": "",
               "Name": "Add",
               "Access_Modifier": "public",
               "Is_Method_Static": false,
               "Parameters": "int x, int y",
               "ReturnType": "int",
-              "Body": "{\n        return x \u002B y;\n    }"
+              "Body": "{\n        return x + y;\n    }"
             },
             {
-              "XMLComment": "/// \u003Csummary\u003E\n    /// Formats a string.\n    /// \u003C/summary\u003E",
+              "XMLComment": "/// <summary>\n    /// Formats a string.\n    /// </summary>",
               "Comment": "//This is a general comment.",
               "Name": "Format",
               "Access_Modifier": "public",

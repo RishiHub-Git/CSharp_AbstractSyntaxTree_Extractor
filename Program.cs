@@ -9,8 +9,6 @@ foreach (var filePath in documentProcessor.FetchFiles())
     ProcessFile.ProcessCodeFile(
         documentProcessor.GetFileContent(filePath), 
         documentProcessor.GetFileName(filePath));
-
-    
 } ;
 Console.WriteLine("Processing Completed");
 
