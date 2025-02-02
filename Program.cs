@@ -11,6 +11,6 @@ foreach (var filePath in documentProcessor.FetchFiles())
         documentProcessor.GetFileContent(filePath), 
         fileName);
     
-    await googleDriveJsonUpload.UploadGoogleDriveJsonFile(String.Format("Data/{0}.json", fileName));
+    await googleDriveJsonUpload.UploadGoogleDriveJsonFile(String.Format("data/{0}.json", fileName));
 } ;
 Console.WriteLine("Processing Completed");

@@ -3,7 +3,7 @@ bin/
 obj/
 creds/
 token.json/
-Data/
+data/
 
 # Ignore user-specific files
 *.user
